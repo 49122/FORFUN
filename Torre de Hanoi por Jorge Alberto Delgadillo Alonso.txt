@@ -1,0 +1,124 @@
+﻿FOR 1 
+
+
+N=1 a=”A” b=”B” c=”C”
+
+
+PASS 
+
+
+A C
+
+
+PASS
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+FOR 2
+
+
+N=2 a=”A” b=”B” c=”C”
+
+
+N=1 a=”A” b=”C” c=”B”
+
+
+PASS 
+
+
+A B
+
+
+A C
+
+
+PASS
+
+
+B C
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOR 3
+
+
+1        N=3 a=”A” b=”B” c=”C”
+//RECURSIÓN
+2        N=2 a=”A” b=”C” c=”B”
+//RECURSIÓN
+3        N=1 a=”A” b=”B” c=”C”                 *MUERTO
+PASS
+4        {
+5                A C
+6        }
+PASS
+// REGRESAMOS AL MUNDO EN DONDE “N” VALE 2 (LÍNEA 2)
+7        A  B
+//RECURSIÓN
+8        N=1 a=”C”  b=”A” c=”B                 *MUERTO
+PASS        
+9        {
+10                C B
+11        }
+PASS
+// REGRESAMOS AL MUNDO DONDE “N” VALE 3 (LÍNEA 1)
+12        A C        
+//RECURSIÓN
+13        N=2 a=”B” b=”A” c=”C”
+//RECURSIÓN
+14        N=1 a=”B” b=”C” c=”A”                *MUERTO
+PASS
+15        {
+16                B A
+17        }
+PASS
+// REGRESAMOS AL MUNDO DONDE “N” VALE 2 (LÍNEA 13)
+18        B C
+// ÚLTIMA RECURSIÓN
+19        N=1 a=”A” b=”B” c=”C”                *MUERTO
+PASS
+20        {
+21                A C
+22        }
+
+
+
+
+//
+A Partir de aquí es lo mismo independientemente de cuántos discos sean. Como pueden ver la magia yace en el momento que n es igual a dos y obviamente en los cambios pertinentes a través de la recursión.
